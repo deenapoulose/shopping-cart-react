@@ -80,7 +80,7 @@ const increase = (i) =>{
 
     var incart=JSON.parse(localStorage.getItem("cart"));
     if(incart ===null){
-        alert('cart empty')
+       
         return <h2 style={{textAlign:"center"}}>Nothings Product</h2>
     }
   
