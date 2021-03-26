@@ -54,24 +54,24 @@ const Reg= () =>{
 		}
 		
 		 else{
-			var dat1= localStorage.getItem("r");
-			 console.log("rrr"+dat1);
-			 if(dat1 !=null){
-				var reg1 = JSON.parse(dat1);
-				reg1.push({
-					name:nameText,
-					pa:passwordText
-					})
-			}
-			else {
-				r.push({
-					name:nameText,
-					pa:passwordText
-				 })
-				reg1=r;
-			}
-			setrdata(reg1);
-			localStorage.setItem("r", JSON.stringify(reg1));
+			// var dat1= localStorage.getItem("r");
+			//  console.log("rrr"+dat1);
+			//  if(dat1 !=null){
+			// 	var reg1 = JSON.parse(dat1);
+			// 	reg1.push({
+			// 		name:nameText,
+			// 		pa:passwordText
+			// 		})
+			// }
+			// else {
+			// 	r.push({
+			// 		name:nameText,
+			// 		pa:passwordText
+			// 	 })
+			// 	reg1=r;
+			// }
+			// setrdata(reg1);
+			// localStorage.setItem("r", JSON.stringify(reg1));
 			var arr=localStorage.getItem("localData");
 			if(arr !=null){
 				var reg = JSON.parse(arr);
@@ -99,8 +99,28 @@ const Reg= () =>{
 			setdata(reg);
 			//console.log(reg);
 			localStorage.setItem("localData", JSON.stringify(reg));
+				 var dat1= localStorage.getItem("r");
+			  console.log("rrr"+dat1);
+			  if(dat1 !=null){
+			
+				  
+			 	var reg1 = JSON.parse(dat1);
+			 	reg1.push({
+			 		name:nameText,
+		 		pa:passwordText
+				})
+			}
+			 else {
+			 	r.push({
+					name:nameText,
+		 		pa:passwordText
+			 	 })
+			 	reg1=r;
+			 }
+			 setrdata(reg1);
+			 localStorage.setItem("r", JSON.stringify(reg1));
 		    window.location.href = "/log";
-			// 
+			
 		
 			setNameText("")
 		

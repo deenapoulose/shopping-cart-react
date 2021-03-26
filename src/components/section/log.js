@@ -3,6 +3,7 @@ import React ,{useState} from "react";
 const Log = () =>{
     const[lname,lnameset]=useState()
     const[pa,setpass]=useState()
+    const[loginfo,setloginfo]=useState([])
     
    
     const  hl= (e) =>{
@@ -29,11 +30,19 @@ const Log = () =>{
                  console.log("count"+count);
              }}
     if(count>0){
+        loginfo.push({
+            n:lname,
+            status:'login'
+            
+        })
+        localStorage.setItem("loginfo", JSON.stringify(loginfo));
 
 
 
 
         alert("welcome");
+        
+
         window.location.href = "/prod";
     }
     else{

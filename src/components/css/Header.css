@@ -10,6 +10,9 @@ header .logo a{
     text-transform: uppercase;
     color: black;
 }
+#hide{
+    display: none;
+}
 
 header nav{
     display: flex;

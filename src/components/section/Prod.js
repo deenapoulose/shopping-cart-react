@@ -10,7 +10,7 @@ import f6 from '../svg/img6.jpg';
 const Prod = () =>{
     const [products,setrdata] =useState([]);
     const[cart,setCart]= useState([]);
-  
+    const [cartaddn,setcartna]=useState('');
     
 	
    
@@ -83,6 +83,17 @@ const Prod = () =>{
         var da= localStorage.getItem("produ");
         var lo= JSON.parse(da);
 var addCart =(i) =>{
+    
+    var getusername=JSON.parse(localStorage.getItem('loginfo'))
+    if(getusername !==null){
+    for (let i=0;i<getusername.length;i++){
+        var  ns= getusername[i].n
+        
+     
+    }
+  
+}
+    
    // console.log(i); fetch id is here
     var prod=JSON.parse(localStorage.getItem("produ"));
     //console.log(prod)
@@ -90,6 +101,7 @@ var addCart =(i) =>{
         return (prod[index].id===i)
     })
     // console.log(newProd);
+    var nameuser=ns;
      var a=newProd[0].id;
      var b=newProd[0].title;
      var c=newProd[0].src;
@@ -103,15 +115,20 @@ var addCart =(i) =>{
     var cdata=localStorage.getItem("cart");
     if(cdata !=null){
         var cre = JSON.parse(cdata);
+        //get username=
+        // var uname=JSON.parse(localStorage.getItem('loginfo'))
+        // var unamelen=uname.length;
+        // console.log(unamelen)
        // console.log(cre);//check already added item
        var exccart=cre.filter(function (id,index){
-        return (cre[index].id===i)
+        return (cre[index].id===i && cre[index].name===ns)
     })
     //console.log(exccart)
     var check= exccart.length;
     // console.log(check);
     if(check=== 0){
           cre.push({
+              "name":nameuser,
             "id": a,
            "title": b,
             "src": c,
@@ -133,6 +150,7 @@ var addCart =(i) =>{
     else {
         cart.push(
             {
+                "name":nameuser,
                 "id": a,
                "title": b,
                 "src": c,

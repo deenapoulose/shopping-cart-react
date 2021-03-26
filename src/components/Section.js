@@ -5,6 +5,7 @@ import Cart from './section/Cart'
 import Payment from './section/Payment'
 import Reg from './section/reg'
 import Log from './section/log'
+import Logout from './section/logout'
 const Section = () =>{
 
    
@@ -16,6 +17,7 @@ const Section = () =>{
                     <Route exact  path="/log" component={Log}  />
                     <Route exact path="/cart" component={Cart}  />
                     <Route exact  path="/payment" component={Payment}  />
+                    <Route exact  path="/logout" component={Logout}  />
             </section>
         )
     

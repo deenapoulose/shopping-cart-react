@@ -5,20 +5,61 @@ import {Link} from 'react-router-dom'
 import '../css/Details.css'
 import '../css/Cart.css'
 const Cart  = ()=>{
-    const[tot,settot]=useState()
+    const   [t,setT]=useState('')
+    const   [cartuserr,setcartuser]=useState()
+    var [tt,setnew]=useState();
     useEffect(() =>{
         getTotal();
+        getcartuserr();
       },[]);
-  const   getTotal = ()=>{
-    var carttotal=JSON.parse(localStorage.getItem("cart"));
+const getcartuserr = ()=>{
 
-        const tot = carttotal.reduce((prev, item1) => {
-            return prev + (item1.price * item1.count);
-        },0)
-        settot(tot);
-        // this.setState({total: res})
-       console.log(tot)
+    var acn=JSON.parse(localStorage.getItem('loginfo'))
+    if(acn !==null){
+        var  nam=acn[0].n
+        setcartuser(nam)
+    }
+    else{
+       alert('please login')
+       window.location.href='/log'
+    }
+   
+}
+
+
+  const   getTotal = ()=>{
+      
+    var carttotal=JSON.parse(localStorage.getItem("cart"));
+    if( carttotal !==null){
+        var fg=localStorage.getItem("cart")
+        var fg1=JSON.parse(fg);
+        var unamewe=JSON.parse(localStorage.getItem('loginfo'))
+        var k=unamewe.length
+        if(k>0){
+           var  userrr=unamewe[0].n
+
+        var w =   fg1.filter(function (id,index) {
+            return  fg1[index].name===userrr
+         });
+        
+     
+        }
+        
+// console.log('cartlength',userrr);
+// console.log('carwwwwwwwww',w);   // settot(tot);
+// // console.log('ee',e);
+// console.log('tot',q);
+
+
+    }
+    var q= w.reduce((a,v) =>  a = a + (v.price *v.count) , 0 )
+    console.log('to',q)
+    setnew(q)
+    tt=q
+    console.log('t',tt)
+   
     };
+    
   const  reduction = (i)=>{
     var incartt=JSON.parse(localStorage.getItem("cart"));
     var newda=[];
@@ -68,7 +109,7 @@ const increase = (i) =>{
 	
       
         
-        //     this.getTotal();
+        
         
     }
        
@@ -79,7 +120,14 @@ const increase = (i) =>{
 
 
     var incart=JSON.parse(localStorage.getItem("cart"));
-    if(incart ===null){
+    if( incart !==null){
+    var newincart= incart.filter(function (id,index) {
+		return incart[index].name===cartuserr
+     });
+    
+     console.log(newincart)
+    }
+    if(newincart ===null){
        
         return <h2 style={{textAlign:"center"}}>Nothings Product</h2>
     }
@@ -89,7 +137,7 @@ const increase = (i) =>{
                     
     return(
         <div>
-            { incart.map((ite,index )=>{
+            { newincart.map((ite,index )=>{
 		
          return(
           <div className="details cart" key={ite.id}>
@@ -116,7 +164,7 @@ const increase = (i) =>{
 }
  <div className="total">
                         <Link to="/payment">Payment</Link>
-                        <h3>Total: ${tot}</h3>
+                        <h3>Total: ${tt}</h3>
                     </div>
    
      </div>
