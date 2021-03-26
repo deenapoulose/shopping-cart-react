@@ -52,25 +52,27 @@ const findlen = ()=>{
     else{
         var usit=JSON.parse(localStorage.getItem('loginfo'))
         var usitlength=usit.length;
-        if(usitlength === 0){
-            var carl=0
-            setcarl( carl)
-            
-            // var nw=usit[0].n;
-            
+         if(usitlength === 0){
+          
+            var carl=0;
+            setcarl(carl)
 
         }
         else{
-            var nw=usit[0].n
-            var ww=cartcountlist.filter(function (id,index) {
+           
+            for(let i=0;i<usit.length;i++){
+                var nw=usit[i].n
+                
+            }
+          
+             var ww=cartcountlist.filter(function (id,index) {
                 return  cartcountlist[index].name===nw
-             });
+            });
              var carl=ww.length
              setcarl( carl)
         }
-        console.log('usit',usitlength)
-        console.log('usitname',nw)
-        
+       
+      
     }
    
 

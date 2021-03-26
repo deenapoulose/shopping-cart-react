@@ -11,7 +11,7 @@ const Prod = () =>{
     const [products,setrdata] =useState([]);
     const[cart,setCart]= useState([]);
     const [cartaddn,setcartna]=useState('');
-    
+   
 	
    
     products.push(
