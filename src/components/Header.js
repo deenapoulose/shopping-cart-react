@@ -28,16 +28,16 @@ const contchange =() =>{
         //console.log("inloguser"+lenchecklog)
         if (lenchecklog>0){
             setView("hide");
-            setView2('');       
+            //setView2('');       
         }
         else{
             setView2("hide");
-            setView('');
+            // setView();
         }
     }
     else{
         setView2("hide");
-        setView('');
+        // setView();
         return(
             <h2>please login</h2>
         )
